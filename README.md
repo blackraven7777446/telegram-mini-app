@@ -1,6 +1,4 @@
 # telegram-mini-app
-
-[index.html](https://github.com/user-attachments/files/24176991/index.html)
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +21,14 @@ user2"></textarea><br><br>
     tg.expand();
 
     function start() {
-      alert("Кнопка працює! 🎉");
+      const group = document.getElementById("group").value;
+      const users = document.getElementById("users").value.split("\n");
+
+      // Надсилаємо дані боту
+      tg.sendData(JSON.stringify({
+        group: group,
+        users: users
+      }));
     }
   </script>
 </body>
