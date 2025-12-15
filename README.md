@@ -1,4 +1,3 @@
-# telegram-mini-app
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +21,24 @@ user2"></textarea><br><br>
 
     function start() {
       const group = document.getElementById("group").value;
-      const users = document.getElementById("users").value.split("\n");
+      const users = document.getElementById("users").value
+                        .split("\n")
+                        .map(u => u.trim())
+                        .filter(u => u.length > 0);
+
+      if(!group || users.length === 0){
+          alert("Вкажіть групу та хоча б одного користувача!");
+          return;
+      }
 
       // Надсилаємо дані боту
       tg.sendData(JSON.stringify({
         group: group,
         users: users
       }));
+
+      // Закриваємо Mini App після відправки
+      tg.close();
     }
   </script>
 </body>
