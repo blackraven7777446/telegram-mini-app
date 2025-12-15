@@ -8,17 +8,22 @@
 <body>
   <h2>Invite Mini App</h2>
 
+  <!-- Поле для введення групи -->
   <input id="group" placeholder="@groupname"><br><br>
 
+  <!-- Поле для введення користувачів -->
   <textarea id="users" rows="5" placeholder="user1
 user2"></textarea><br><br>
 
+  <!-- Кнопка запуску -->
   <button onclick="start()">START</button>
 
   <script>
+    // Підключення до Telegram Web App
     const tg = window.Telegram.WebApp;
     tg.expand();
 
+    // Функція START
     function start() {
       const group = document.getElementById("group").value;
       const users = document.getElementById("users").value
